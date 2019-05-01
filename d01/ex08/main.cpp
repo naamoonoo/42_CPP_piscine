@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hnam <hnam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/30 22:58:08 by hnam              #+#    #+#             */
-/*   Updated: 2019/04/30 22:59:11 by hnam             ###   ########.fr       */
+/*   Created: 2019/05/01 00:19:51 by hnam              #+#    #+#             */
+/*   Updated: 2019/05/01 01:27:24 by hnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_H
-# define ZOMBIE_H
+#include "Human.hpp"
 
-#include <iostream>
-#include <string>
+int main()
+{
+	Human andy;
 
-class Zombie {
-	public:
-		Zombie(std::string name): name(name) {
-			std::cout << name << " zomibe is born" << std::endl;
-		};
-		~Zombie() {
-			std::cout << this->name << " zombie dead" <<std::endl;
-		};
-		std::string	name;
-		std::string	type;
-		void	announce();
-};
-
-#endif
+	andy.action("melee", "bear");
+	andy.action("ranged", "bear");
+	andy.action("shout", "bear");
+	andy.action("punch", "bear");
+	andy.action("punch", "bear");
+	return (0);
+}

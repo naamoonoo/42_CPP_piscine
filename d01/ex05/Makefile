@@ -1,4 +1,4 @@
-NAME	=	ex05
+NAME	=	human
 
 CC		=	clang++
 WFLAG	=	-Wall -Werror -Wextra

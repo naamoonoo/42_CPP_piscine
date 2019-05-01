@@ -1,4 +1,4 @@
-NAME	=	ex04
+NAME	=	attack
 
 CC		=	clang++
 WFLAG	=	-Wall -Werror -Wextra

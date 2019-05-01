@@ -1,5 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hnam <hnam@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/04/30 22:59:48 by hnam              #+#    #+#             */
+/*   Updated: 2019/04/30 22:59:49 by hnam             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef BRAIN_H
+# define BRAIN_H
+
 #include <iostream>
 #include <sstream>
+#include <string>
 
 class Brain {
 	public:
@@ -12,3 +28,5 @@ class Brain {
 		std::string	identify();
 		int		_size;
 };
+
+#endif

@@ -1,4 +1,4 @@
-NAME	=	ex04
+NAME	=	cat
 
 CC		=	clang++
 WFLAG	=	-Wall -Werror -Wextra

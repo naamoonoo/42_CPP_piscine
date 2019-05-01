@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hnam <hnam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/30 22:58:08 by hnam              #+#    #+#             */
-/*   Updated: 2019/04/30 22:59:11 by hnam             ###   ########.fr       */
+/*   Created: 2019/05/01 01:54:54 by hnam              #+#    #+#             */
+/*   Updated: 2019/05/01 02:00:26 by hnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_H
-# define ZOMBIE_H
+#include "Logger.hpp"
 
-#include <iostream>
-#include <string>
+int main()
+{
+	Logger lg;
 
-class Zombie {
-	public:
-		Zombie(std::string name): name(name) {
-			std::cout << name << " zomibe is born" << std::endl;
-		};
-		~Zombie() {
-			std::cout << this->name << " zombie dead" <<std::endl;
-		};
-		std::string	name;
-		std::string	type;
-		void	announce();
-};
-
-#endif
+	lg.log("file", "this is first log on file");
+	lg.log("console", "written in console");
+	lg.log("somewhere", "nothing happend");
+	lg.log("file", "this is second log on file");
+	lg.log("console", "another log written in console");
+	return (0);
+}

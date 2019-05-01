@@ -1,4 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hnam <hnam@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/04/30 22:58:19 by hnam              #+#    #+#             */
+/*   Updated: 2019/04/30 22:58:43 by hnam             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef ZOMBIE_H
+# define ZOMBIE_H
+
 #include <iostream>
+#include <string>
 
 class Zombie {
 	public:
@@ -13,3 +29,5 @@ class Zombie {
 		std::string	type;
 		void	announce();
 };
+
+#endif
