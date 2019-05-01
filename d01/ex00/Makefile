@@ -1,4 +1,4 @@
-NAME	=	test
+NAME	=	pony
 
 CC		=	clang++
 WFLAG	=	-Wall -Werror -Wextra

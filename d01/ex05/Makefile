@@ -1,4 +1,4 @@
-NAME	=	test
+NAME	=	ex05
 
 CC		=	clang++
 WFLAG	=	-Wall -Werror -Wextra
