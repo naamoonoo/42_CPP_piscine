@@ -6,7 +6,7 @@
 /*   By: hnam <hnam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 22:49:17 by hnam              #+#    #+#             */
-/*   Updated: 2019/04/30 21:47:35 by hnam             ###   ########.fr       */
+/*   Updated: 2019/04/30 22:12:06 by hnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ class Contact
 		~Contact(void);
 		int	index;
 		std::string	contact_info[11];
-		Contact *next;
 		Contact() {};
 };
 
