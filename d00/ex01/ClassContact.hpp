@@ -6,7 +6,7 @@
 /*   By: hnam <hnam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 22:49:17 by hnam              #+#    #+#             */
-/*   Updated: 2019/04/30 22:12:06 by hnam             ###   ########.fr       */
+/*   Updated: 2019/04/30 22:27:45 by hnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CLASS_CONTACT_H
 
 #include <iostream>
+#include <string>
 
 static 	std::string g_question[] =
 {
