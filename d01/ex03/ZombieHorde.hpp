@@ -6,7 +6,7 @@
 /*   By: hnam <hnam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 22:59:04 by hnam              #+#    #+#             */
-/*   Updated: 2019/04/30 22:59:11 by hnam             ###   ########.fr       */
+/*   Updated: 2019/05/01 21:44:34 by hnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,17 @@
 #include "Zombie.hpp"
 
 class ZombieHorde{
+	private:
+		Zombie	*_zombies;
+
 	public:
 		ZombieHorde(int N);
 		~ZombieHorde();
-		void	setZombieType(Zombie *zombie, std::string type);
-		Zombie	*randomChump();
-		Zombie	*zombies;
+		Zombie*	getZombie(int idx);
+		void	setZombieType(int idx, std::string type);
+		Zombie*	randomChump();
+
+
 };
 
 #endif

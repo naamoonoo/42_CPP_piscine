@@ -6,7 +6,7 @@
 /*   By: hnam <hnam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 22:58:12 by hnam              #+#    #+#             */
-/*   Updated: 2019/04/30 22:59:11 by hnam             ###   ########.fr       */
+/*   Updated: 2019/05/01 21:31:30 by hnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class ZombieEvent{
 		ZombieEvent() {};
 		~ZombieEvent() {};
 		void	setZombieType(Zombie *zombie, std::string type);
-		Zombie*	newZombie(std::string name);
+		Zombie*	newZombie(std::string name, std::string type);
 		Zombie	randomChump();
 };
 

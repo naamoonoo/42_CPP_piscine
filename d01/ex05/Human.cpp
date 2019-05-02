@@ -6,7 +6,7 @@
 /*   By: hnam <hnam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 22:59:52 by hnam              #+#    #+#             */
-/*   Updated: 2019/04/30 23:00:09 by hnam             ###   ########.fr       */
+/*   Updated: 2019/05/01 21:52:32 by hnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Human::Human(){
 	std::cout << "Human created" << std::endl;
-	this->brain = new Brain(std::rand() % 10);
+	this->_brain = new Brain(std::rand() % 10);
 };
 
 Human::~Human(){
@@ -30,5 +30,5 @@ std::string	Human::identify(){
 };
 
 Brain	Human::getBrain(){
-	return *(this->brain);
+	return *(this->_brain);
 };

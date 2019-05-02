@@ -6,7 +6,7 @@
 /*   By: hnam <hnam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 23:00:11 by hnam              #+#    #+#             */
-/*   Updated: 2019/04/30 23:00:17 by hnam             ###   ########.fr       */
+/*   Updated: 2019/05/01 21:50:17 by hnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@
 #include "Brain.hpp"
 
 class Human{
+	private:
+		Brain	*_brain;
 	public:
 		Human();
 		~Human();
-		Brain	*brain;
+
 		std::string	identify();
 		Brain	getBrain();
 };

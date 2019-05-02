@@ -6,7 +6,7 @@
 /*   By: hnam <hnam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 00:19:44 by hnam              #+#    #+#             */
-/*   Updated: 2019/05/01 01:41:32 by hnam             ###   ########.fr       */
+/*   Updated: 2019/05/01 21:58:39 by hnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void Human::action(std::string const & action_name, std::string const & target){
 
 	i = -1;
 	while (++i < 3)
-		if (_dp[i].action.compare(action_name) == 0)
+		if (this->_dp[i].action.compare(action_name) == 0)
 			return (this->*_dp[i].func)(target);
 	if (i == 3)
 		std::cout << "there are only three type of attack (melee, ranged, shout)" << std::endl;

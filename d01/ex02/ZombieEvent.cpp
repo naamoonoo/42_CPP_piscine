@@ -6,21 +6,21 @@
 /*   By: hnam <hnam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 22:58:10 by hnam              #+#    #+#             */
-/*   Updated: 2019/04/30 22:59:11 by hnam             ###   ########.fr       */
+/*   Updated: 2019/05/01 21:35:50 by hnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ZombieEvent.hpp"
 
 void	ZombieEvent::setZombieType(Zombie *zombie, std::string type){
-	zombie->type = type;
-	std::cout << zombie->name << "now have a type " << type << std::endl;
+	zombie->setType(type);
+	std::cout << zombie->getName() << " now have a type " << type << std::endl;
 };
 
-Zombie*	ZombieEvent::newZombie(std::string name){
+Zombie*	ZombieEvent::newZombie(std::string name, std::string type){
 	Zombie *zombie = new Zombie(name);
 
-	zombie->announce();
+	zombie->setType(type);
 	return zombie;
 };
 

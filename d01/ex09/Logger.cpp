@@ -6,7 +6,7 @@
 /*   By: hnam <hnam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 01:54:43 by hnam              #+#    #+#             */
-/*   Updated: 2019/05/01 02:05:13 by hnam             ###   ########.fr       */
+/*   Updated: 2019/05/01 22:00:59 by hnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void Logger::log(std::string const & dest, std::string const & message){
 
 	i = -1;
 	while (++i < 3)
-		if (_dp[i].message.compare(dest) == 0)
+		if (this->_dp[i].message.compare(dest) == 0)
 			return (this->*_dp[i].func)(message);
 	if (i == 3)
 		std::cout << "there are only two type of log (console, file)" << std::endl;

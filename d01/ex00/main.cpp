@@ -6,42 +6,39 @@
 /*   By: hnam <hnam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 22:54:41 by hnam              #+#    #+#             */
-/*   Updated: 2019/04/30 22:54:51 by hnam             ###   ########.fr       */
+/*   Updated: 2019/05/01 21:27:41 by hnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Pony.hpp"
 
-Pony*	ponyOnTheHeap(std::string name, std::string color, int age)
+void	ponyOnTheHeap()
 {
-	Pony	*pony = new Pony(name, color, age);
-	return pony;
+	Pony	*pony = new Pony("andy", 10);
+
+	pony->gettingOlder();
+	pony->gettingOlder();
+	pony->gettingOlder();
+	delete pony;
 }
 
-Pony	ponyOnTheStack(std::string name, std::string color, int age)
+void	ponyOnTheStack()
 {
-	Pony	pony(name, color, age);
-	return pony;
+	Pony	pony("saro", 11);
+
+	pony.gettingOlder();
+	pony.gettingOlder();
+	pony.gettingOlder();
 }
 
 int		main()
 {
-	Pony	*ponyOnHeap = ponyOnTheHeap("andy", "brown", 4);
-	Pony	ponyOnStack = ponyOnTheStack("foo", "green", 6);
-
-	std::cout << "name : " << ponyOnHeap->name << std::endl;
-	std::cout << "color : " << ponyOnHeap->color << std::endl;
-	std::cout << "age : " << ponyOnHeap->age << std::endl;
-	std::cout << "house : " << "heap" << std::endl;
-
-	std::cout << "name : " << ponyOnStack.name << std::endl;
-	std::cout << "color : " << ponyOnStack.color << std::endl;
-	std::cout << "age : " << ponyOnStack.age << std::endl;
-	std::cout << "house : " << "stack" << std::endl;
-
-	ponyOnHeap->gettingOlder();
-	ponyOnStack.gettingOlder();
-
-	delete ponyOnHeap;
+	std::cout << "pony on the heap start" << std::endl;
+	ponyOnTheHeap();
+	std::cout << "pony on the heap end" << std::endl;
+	std::cout << "--------------------------" << std::endl;
+	std::cout << "pony on the stack start" << std::endl;
+	ponyOnTheStack();
+	std::cout << "pony on the stack end" << std::endl;
 	return (0);
 }

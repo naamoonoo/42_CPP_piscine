@@ -1,4 +1,4 @@
-NAME	=	logger
+NAME	=	ex09
 
 CC		=	clang++
 WFLAG	=	-Wall -Werror -Wextra

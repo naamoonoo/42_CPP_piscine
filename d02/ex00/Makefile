@@ -1,14 +1,14 @@
-NAME	=	cato9tails
+NAME	=	fixed
 
-CC		=	clang++
-WFLAG	=	-Wall -Werror -Wextra
+CXX		=	clang++
+CXXFLAG	=	-Wall -Werror -Wextra
 
 SRC		=	$(wildcard *.cpp)
 OBJ		=	$(patsubst %.cpp, %.o, $(SRC))
 
 all		:
-			$(CC) $(WFLAG) -c $(SRC)
-			$(CC) $(OBJ) -o $(NAME)
+			$(CXX) $(CXXFLAG) -c $(SRC)
+			$(CXX) $(OBJ) -o $(NAME)
 
 clean	:
 			rm -rf $(OBJ)
