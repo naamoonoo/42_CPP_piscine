@@ -65,7 +65,7 @@ void	EvalExpr::getAnswer(){
 	i = 0;
 	if (this->_expr[1].empty())
 	{
-		std::cout << this->getData(0);
+		std::cout << this->getData(0) << std::endl;
 	}
 	else
 	{
