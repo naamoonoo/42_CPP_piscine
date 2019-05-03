@@ -9,11 +9,10 @@ FragTrap::FragTrap(std::string name) : _name(name) {
 	this->_level = 1;
 	this->_melee_attack_damage = 30;
 	this->_ranged_attack_damage = 20;
-	this->_punch_attack_damage = 5;
+	this->_punch_attack_damage = 35;
 	this->_magic_attack_damage = 50;
-	this->_curse_attack_damage = 10;
+	this->_curse_attack_damage = 15;
 	this->_armor_defence_reduction = 5;
-	this->_is_alive = true;
 };
 
 FragTrap::~FragTrap() {
@@ -38,7 +37,6 @@ FragTrap&	FragTrap::operator=(FragTrap const & rhs){
 	this->_magic_attack_damage = rhs._magic_attack_damage;
 	this->_curse_attack_damage = rhs._curse_attack_damage;
 	this->_armor_defence_reduction = rhs._armor_defence_reduction;
-	this->_is_alive = rhs._is_alive;
 	return *this;
 };
 
@@ -83,7 +81,7 @@ void	FragTrap::takeDamage(unsigned int amount){
 	}
 	else
 	{
-		this->_is_alive = false;
+		this->_hit_point -= 0;
 		std::cout << this->_name << " has no more HP" << std::endl;
 	}
 };
@@ -117,8 +115,7 @@ t_dp	FragTrap::_dp[] =
 	{&FragTrap::meleeAttack, &FragTrap::getMeleeAttackDamage},
 	{&FragTrap::magicAttack, &FragTrap::getMagicAttackDamage},
 	{&FragTrap::punchAttack, &FragTrap::getPunchAttackDamage},
-	{&FragTrap::curseAttack, &FragTrap::getCurseAttackDamage},
-	{NULL, NULL},
+	{&FragTrap::curseAttack, &FragTrap::getCurseAttackDamage}
 };
 
 void	FragTrap::vaulthunter_dot_exe(std::string const & target){
@@ -141,10 +138,9 @@ std::string	FragTrap::getName(){
 	return this->_name;
 };
 
-bool		FragTrap::getIsAlive()
-{
-	return this->_is_alive;
-}
+bool	FragTrap::checkIsAlive(){
+	return (this->_hit_point > 0);
+};
 
 unsigned int	FragTrap::getHitPoint() {
 	return this->_hit_point;

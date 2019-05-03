@@ -1,12 +1,11 @@
-#ifndef SCAV_TRAP_H
-# define SCAV_TRAP_H
+#ifndef CLAP_TRAP_H
+# define CLAP_TRAP_H
 
-#include <string>
 #include <iostream>
+#include <string>
 
-class ScavTrap
-{
-	private:
+class ClapTrap {
+	protected:
 		std::string		_name;
 		unsigned int	_hit_point;
 		unsigned int	_max_hit_point;
@@ -16,15 +15,16 @@ class ScavTrap
 		unsigned int	_melee_attack_damage;
 		unsigned int	_ranged_attack_damage;
 		unsigned int	_armor_defence_reduction;
-		bool			_is_alive;
 
 	public:
-		ScavTrap(void) {}
-		ScavTrap(std::string name);
-		~ScavTrap(void);
-		ScavTrap(ScavTrap & other);
+		ClapTrap(void) {
+			std::cout << "ClapTrap construction called" << std::endl;
+		}
+		ClapTrap(std::string name);
+		~ClapTrap(void);
+		ClapTrap(ClapTrap & other);
 
-		ScavTrap&	operator=(ScavTrap const & rhs);
+		ClapTrap&	operator=(ClapTrap const & rhs);
 
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
@@ -32,8 +32,7 @@ class ScavTrap
 		void	rangedAttack(std::string const & target);
 		void	meleeAttack(std::string const & target);
 
-		void	challengeNewcomer();
-
+		bool			checkIsAlive();
 		std::string		getName();
 
 		unsigned int	getHitPoint();
@@ -41,5 +40,6 @@ class ScavTrap
 		unsigned int	getMeleeAttackDamage();
 		unsigned int	getRangedAttackDamage();
 };
+
 
 #endif

@@ -9,7 +9,7 @@ ScavTrap::ScavTrap(std::string name) : _name(name) {
 	this->_level = 1;
 	this->_melee_attack_damage = 20;
 	this->_ranged_attack_damage = 15;
-	this->_armor_defence_reduction = 5;
+	this->_armor_defence_reduction = 3;
 	this->_is_alive = true;
 };
 

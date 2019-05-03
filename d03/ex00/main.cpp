@@ -6,17 +6,15 @@ int main()
 	FragTrap	saro("saro");
 
 	int i = 0;
-	while (andy.getIsAlive() && saro.getIsAlive())
+	while (i < 3)
 	{
 		std::cout << "ROUND " << ++i << "----------------------" << std::endl;
 		andy.vaulthunter_dot_exe(saro.getName());
 		saro.takeDamage(andy.get_vaulthunter_dot_exe_damage());
 		saro.vaulthunter_dot_exe(andy.getName());
 		andy.takeDamage(saro.get_vaulthunter_dot_exe_damage());
-		if (!andy.getEnergyPoint() || !saro.getEnergyPoint())
-			break;
 	}
-	if (andy.getIsAlive() && saro.getIsAlive())
+	if (andy.checkIsAlive() && saro.checkIsAlive())
 	{
 		if (andy.getHitPoint() > saro.getHitPoint())
 			std::cout << "andy win!" << std::endl;
@@ -27,7 +25,7 @@ int main()
 	}
 	else
 	{
-		if (andy.getIsAlive())
+		if (andy.checkIsAlive())
 			std::cout << "andy win!" << std::endl;
 		else
 			std::cout << "saro win!" << std::endl;

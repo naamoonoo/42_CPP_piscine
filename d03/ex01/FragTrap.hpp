@@ -22,15 +22,12 @@ class FragTrap
 		unsigned int	_curse_attack_damage;
 		unsigned int	_armor_defence_reduction;
 		unsigned int	_attack_idx;
-		bool			_is_alive;
 		static t_dp		_dp[];
 
 	public:
-		FragTrap(void) {};
 		FragTrap(std::string name);
 		~FragTrap(void);
 		FragTrap(FragTrap & other);
-
 		FragTrap&	operator=(FragTrap const & rhs);
 
 		void	rangedAttack(std::string const & target);
@@ -45,8 +42,10 @@ class FragTrap
 		void	vaulthunter_dot_exe(std::string const & target);
 		unsigned int	get_vaulthunter_dot_exe_damage();
 
+		bool			checkIsAlive();
+
 		std::string		getName();
-		bool			getIsAlive();
+
 		unsigned int	getHitPoint();
 		unsigned int	getEnergyPoint();
 		unsigned int	getMeleeAttackDamage();
