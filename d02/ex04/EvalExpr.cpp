@@ -18,23 +18,81 @@ void		EvalExpr::setData(int idx, std::string data){
 	this->_expr[idx] = data;
 };
 
+Fixed		EvalExpr::getFixed(std::string n)
+{
+	std::stringstream ss(n);
+	float f;
+
+	ss >> f;
+	return Fixed(f);
+}
+
+std::string	EvalExpr::doOp(int idx)
+{
+	std::stringstream ss;
+	Fixed a = this->getFixed(this->getData(idx - 2));
+	Fixed b = this->getFixed(this->getData(idx - 1));
+	if (!this->getData(idx).compare("*"))
+		ss << a * b;
+	else if (!this->getData(idx).compare("+"))
+		ss << a + b;
+	else if (!this->getData(idx).compare("-"))
+		ss << a - b;
+	else if (!this->getData(idx).compare("/"))
+		ss << a / b;
+	std::string str = ss.str();
+	return str;
+}
+
+void	EvalExpr::makeNewData(int idx, std::string data){
+	std::string *tmp = new std::string[this->_size - 2];
+	int i = -1;
+	int j = 0;
+	while (++i < idx)
+		tmp[j++] = this->getData(i);
+	tmp[j++] = data;
+	i += 2;
+	while (++i < this->_size)
+		tmp[j++] = this->getData(i);
+	delete [] this->_expr;
+	this->_size -= 2;
+	this->_expr = tmp;
+};
+
 void	EvalExpr::getAnswer(){
 	int i;
-	float a;
-	float b;
 
 	i = 0;
-	while (i < this->_size)
+	if (this->_expr[1].empty())
 	{
-		if (i == this->_size - 1)
-			a = this->getData(i);
-
+		std::cout << this->getData(0);
+	}
+	else
+	{
+		while (i < this->_size)
+		{
+			if (this->isOp(this->getData(i)))
+			{
+				this->makeNewData(i - 2, this->doOp(i));
+				return this->getAnswer();
+			}
+			i++;
+		}
 	}
 };
 
-int EvalExpr::exprOrder(std::string expr)
+void	EvalExpr::showData()
 {
-	if (!expr.compare("*") || !expr.compare("/") || !expr.compare("%"))
+	int i;
+
+	i = -1;
+	while(++i < this->_size)
+		std::cout << this->getData(i) << std::endl;
+};
+
+int		EvalExpr::exprOrder(std::string expr)
+{
+	if (!expr.compare("*") || !expr.compare("/"))
 		return 2;
 	else if (!expr.compare("+") || !expr.compare("-"))
 		return 1;
@@ -44,9 +102,9 @@ int EvalExpr::exprOrder(std::string expr)
 		return 3;
 }
 
-bool		isOp(std::string expr)
+bool	EvalExpr::isOp(std::string expr)
 {
-	return (!expr.compare("*") || !expr.compare("/") || !expr.compare("%") ||
+	return (!expr.compare("*") || !expr.compare("/") ||
 		!expr.compare("+") || !expr.compare("-"));
 }
 
