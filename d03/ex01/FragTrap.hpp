@@ -25,6 +25,7 @@ class FragTrap
 		static t_dp		_dp[];
 
 	public:
+		FragTrap(void) {};
 		FragTrap(std::string name);
 		~FragTrap(void);
 		FragTrap(FragTrap & other);

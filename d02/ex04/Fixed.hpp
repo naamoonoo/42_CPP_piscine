@@ -46,6 +46,6 @@ class Fixed {
 		static const int _fractionalBit;
 };
 
-std::ostream&	operator<<(std::ostream &o, Fixed const & i);
+std::ostream&	operator<<(std::ostream &o, Fixed const & src);
 
 #endif
