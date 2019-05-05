@@ -9,9 +9,8 @@
 class PlasmaRifle : public AWeapon
 {
 	public:
-		PlasmaRifle() {};
-		PlasmaRifle(std::string const & name, int apcost, int damage);
-		virtual ~PlasmaRifle();
+		PlasmaRifle() : AWeapon("Plasma Rifle", 5, 21) {};
+		virtual ~PlasmaRifle() {};
 		PlasmaRifle(PlasmaRifle & other);
 
 		PlasmaRifle&	operator=(PlasmaRifle const & other);

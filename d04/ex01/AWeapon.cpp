@@ -9,8 +9,8 @@ AWeapon::~AWeapon(){
 	return ;
 };
 
-AWeapon::AWeapon(AWeapon & other): AWeapon(other){
-	// *this = other;
+AWeapon::AWeapon(AWeapon & other){
+	*this = other;
 	return ;
 };
 
@@ -21,7 +21,7 @@ AWeapon&	AWeapon::operator=(AWeapon const & other){
 	return *this;
 };
 
-std::string AWeapon::getName() const{
+std::string const AWeapon::getName() const{
 	return this->_name;
 };
 
@@ -33,3 +33,10 @@ int AWeapon::getDamage() const{
 	return this->_damage;
 };
 
+void AWeapon::setAPCost(int apcost){
+	this->_apcost = apcost;
+};
+
+void AWeapon::setDamage(int damage){
+	this->_damage = damage;
+};

@@ -19,9 +19,12 @@ class AWeapon
 
 		AWeapon&	operator=(AWeapon const & other);
 
-		std::string virtual getName() const;
+		std::string const getName() const;
 		int getAPCost() const;
 		int getDamage() const;
+		void setAPCost(int apcost);
+		void setDamage(int damage);
+
 		virtual void attack() const = 0;
 
 };

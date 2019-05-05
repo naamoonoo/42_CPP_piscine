@@ -1,20 +1,14 @@
 #include "PlasmaRifle.hpp"
 
-PlasmaRifle::PlasmaRifle(std::string const & name, int apcost, int damage)
-: AWeapon("Plasma Rifle", 21, 5) {
-	return ;
-};
-
-PlasmaRifle::~PlasmaRifle(){
-	return ;
-};
-
-PlasmaRifle::PlasmaRifle(PlasmaRifle & other) : PlasmaRifle(other){
+PlasmaRifle::PlasmaRifle(PlasmaRifle & other){
+	*this = other;
 	return ;
 };
 
 PlasmaRifle&	PlasmaRifle::operator=(PlasmaRifle const & other){
-	// this->
+	this->setAPCost(other.getAPCost());
+	this->setDamage(other.getDamage());
+	return *this;
 };
 
 void PlasmaRifle::attack() const{
