@@ -1,7 +1,7 @@
 #include "PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target)
-	: Form("shrubbery", 25, 5), _target(target)
+	: Form("presidential", 25, 5), _target(target)
 {
 	return;
 };

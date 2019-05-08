@@ -1,7 +1,7 @@
 NAME	=	rush
 
 CXX		=	clang++
-CXXFLAG	=	-Wall -Werror -Wextra -Iincludes
+CXXFLAG	=	-Wall -Werror -Wextra -Iincludes -std=c++98 -O2
 NCURSES	=	-lncurses
 
 SRC		=	$(wildcard src/*.cpp)
@@ -17,6 +17,9 @@ obj/%.o	: 	src/%.cpp
 
 $(NAME)	: 	obj $(OBJ)
 			$(CXX) $(OBJ) -o $(NAME) $(NCURSES)
+
+install:
+	cp $(NAME) /usr/local/bin
 
 clean	:
 			rm -rf $(OBJ)

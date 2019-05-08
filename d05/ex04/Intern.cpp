@@ -33,14 +33,3 @@ Form *Intern::makeForm(std::string form, std::string target)
 	else
 		throw Intern::NonExistFormException();
 };
-
-// typedef struct s_dispatch_table
-// {
-// 	std::string form;
-// 	Form *(Form)(std::string);
-// } t_dp;
-
-// t_dp Intern::_dp[] =
-// 	{
-// 		{"shrubeery", ShrubberyCreationForm},
-// };
