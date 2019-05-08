@@ -16,7 +16,7 @@ class Intern
 
 public:
 	Intern();
-	~Intern();
+	virtual ~Intern();
 	Intern(Intern &other);
 	Intern &operator=(Intern const &rhs);
 

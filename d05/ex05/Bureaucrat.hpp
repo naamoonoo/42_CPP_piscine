@@ -12,10 +12,11 @@ private:
 	std::string const _name;
 	int _grade;
 
-public:
 	Bureaucrat(){};
+public:
+
 	Bureaucrat(std::string name, int grade);
-	~Bureaucrat();
+	virtual ~Bureaucrat();
 	Bureaucrat(Bureaucrat &other);
 	Bureaucrat &operator=(Bureaucrat const &rhs);
 

@@ -22,7 +22,7 @@ class CentralBureaucracy
 
 public:
 	CentralBureaucracy();
-	~CentralBureaucracy();
+	virtual ~CentralBureaucracy();
 	CentralBureaucracy(CentralBureaucracy &other);
 	CentralBureaucracy &operator=(CentralBureaucracy const &rhs);
 

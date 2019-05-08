@@ -20,7 +20,7 @@ private:
 public:
 	OfficeBlock();
 	OfficeBlock(Intern *intern, Bureaucrat *sign_bure, Bureaucrat *exec_bure);
-	~OfficeBlock();
+	virtual ~OfficeBlock();
 
 	void setIntern(Intern *intern);
 	void setSignBureaucrat(Bureaucrat *bure);
