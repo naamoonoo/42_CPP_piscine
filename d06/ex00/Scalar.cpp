@@ -9,9 +9,9 @@ Scalar::~Scalar(){
 };
 
 Scalar::Scalar(std::string str) {
-	_input = str;
-	_pure = makePure();
-	// std::cout << "converted into : " << _pure << std::endl;
+	_value = atof(str.c_str());
+	setPrecision(str);
+	std::cout << std::fixed << std::setprecision(_precision);
 	return ;
 };
 
@@ -20,86 +20,86 @@ Scalar::Scalar(Scalar & other){
 };
 
 Scalar& Scalar::operator=(Scalar const & rhs){
-	_pure = rhs._pure;
+	_value = rhs._value;
 	return *this;
 };
 
-std::string	Scalar::makePure(){
-	// if (_input.size() == 1 && _input[0] >= 32 && _input[0] <= 126)
-	// 	return _input;
-	if (is_special(_input))
-		return _input[0] == '-' ? _input.substr(0, 4) : _input.substr(0, 3);
-
-	int i = 0;
-	std::string res;
-	while(isdigit(_input[i]) || _input[i] == '.')
-		res += _input[i++];
-	return res;
-};
-
-bool	Scalar::is_special(std::string input)
+void	Scalar::setPrecision(std::string str)
 {
-	std::string sub;
-	if (input[0] == '-')
-		sub = input.substr(1, 3);
+	size_t	idx = str.find('.');
+	if (idx != std::string::npos)
+	{
+		_precision = 0;
+		while (std::isdigit(str[++idx]))
+			_precision += 1;
+	}
 	else
-		sub = input.substr(0, 3);
-	return (!sub.compare("nan") || !sub.compare("-inf") || !sub.compare("inf"));
+		_precision = 1;
 }
 
-void	Scalar::toChar(){
-	if (is_special(_pure)){
-		std::cout<< "char: impossible" << std::endl;
-		return;
+char	Scalar::toChar(){
+	if (std::isnan(_value))
+		throw Scalar::ImpossibleConversionException();
+	else if(!std::isprint(_value))
+		throw Scalar::NonDisplayableException();
+	else
+		return static_cast<char>(_value);
+};
+
+int		Scalar::toInt(){
+	if (std::isnan(_value))
+		throw Scalar::ImpossibleConversionException();
+	else if(_value < INT_MIN || _value > INT_MAX)
+		throw Scalar::ImpossibleConversionException();
+	else
+		return static_cast<int>(_value);
+};
+
+float	Scalar::toFloat(){
+	return static_cast<float>(_value);
+};
+
+double	Scalar::toDouble(){
+	return static_cast<double>(_value);
+};
+
+void	Scalar::showCharConverted(){
+	std::cout << "char : ";
+	try
+	{
+		_char = toChar();
+		std::cout << "'" << _char << "'" << std::endl;
 	}
-	std::stringstream ss(_pure);
-	int n;
-	ss >> n;
-
-	if ((n >= 0 && n < 32) || n == 127) // 127 should be non dis
-		std::cout<< "char: Non displayable" << std::endl;
-	else if (n >= 32 && n <= 126)
-		std::cout << "char: '"<< (char)n <<"'" << std::endl;
-	else
-		std::cout<< "char: impossible" << std::endl;
-};
-
-void	Scalar::toInt(){
-	if (is_special(_pure)){
-		std::cout<< "int: impossible" << std::endl;
-		return;
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
 	}
-
-	std::stringstream ss(_pure);
-	int n;
-
-	ss >> n;
-	if (n > INT_MIN && n < INT_MAX)
-		std::cout << "int: " << n << std::endl;
-	else
-		std::cout<< "int: impossible" << std::endl;
 };
 
-void	Scalar::toFloat(){
-	std::string append;
-
-	//42.
-	//min float && max float
-
-	if (is_special(_pure) || _pure.find('.') != std::string::npos)
-		append = "f";
-	else
-		append = ".0f";
-
-	std::cout<< "float: " << _pure + append << std::endl;
+void	Scalar::showIntConverted(){
+	std::cout << "int : ";
+	try
+	{
+		_int = toInt();
+		std::cout << _int << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 };
 
-void	Scalar::toDouble(){
-	std::string append;
+void	Scalar::showFloatConverted(){
+	std::cout << "float : ";
+	_float = toFloat();
+	std::cout << _float << "f" << std::endl;
 
-	if (!is_special(_pure) && _pure.find('.') == std::string::npos)
-		append = ".0";
-
-
-	std::cout<< "double: " << _pure + append << std::endl;
 };
+
+void	Scalar::showDoubleConverted(){
+	std::cout << "double : ";
+	_double = toDouble();
+	std::cout << _double << std::endl;
+};
+
+
