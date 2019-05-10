@@ -6,7 +6,7 @@
 /*   By: hnam <hnam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 22:49:13 by hnam              #+#    #+#             */
-/*   Updated: 2019/04/29 22:49:24 by hnam             ###   ########.fr       */
+/*   Updated: 2019/05/09 17:04:30 by hnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	to_upper_print(char *s)
 			s[i] = (char)(s[i] - 32) ;
 		std::cout << s[i];
 	}
+	std::cout << std::endl;
 }
 
 int	main(int ac, char* av[])
@@ -31,7 +32,7 @@ int	main(int ac, char* av[])
 
 	i = 0;
 	if (ac < 2)
-		std::cout << "\a* LOUD AND UNBEARABLE FEEDBACK NOISE *";
+		std::cout << "\a* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 	else
 		while (av[++i])
 			to_upper_print(av[i]);
