@@ -1,4 +1,4 @@
-NAME	=	rush
+NAME	=	retro
 
 CXX		=	clang++
 CXXFLAG	=	-Wall -Werror -Wextra -Iincludes -std=c++98 -O2
