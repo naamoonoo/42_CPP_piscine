@@ -33,7 +33,7 @@ bool GameSession::render()
 	}
 		// Enemy::randomInterval -= Enemy::randomInterval > 5 ? 1 : 0;
 	int key;
-	if (p1.getHP() == 0)
+	if (p1.getHP() == 0 && p2.getHP() == 0)
 	{
 		while ((key = getch()) != ERR)
 			;
@@ -88,16 +88,19 @@ void GameSession::updateMap()
 
 void GameSession::p1Render()
 {
-	attron(COLOR_PAIR(PLAYER1_PAIR));
-	p1.render();
-	attroff(COLOR_PAIR(PLAYER1_PAIR));
-	back.draw_hp(p1, 1);
-	back.draw_info(p1, 1);
+	if (p1.getHP() != 0)
+	{
+		attron(COLOR_PAIR(PLAYER1_PAIR));
+		p1.render();
+		attroff(COLOR_PAIR(PLAYER1_PAIR));
+		back.draw_hp(p1, 1);
+		back.draw_info(p1, 1);
+	}
 }
 
 void GameSession::p2Render()
 {
-	if (p2_joined)
+	if (p2_joined && p2.getHP() != 0)
 	{
 		attron(COLOR_PAIR(PLAYER2_PAIR));
 		p2.render();
@@ -112,7 +115,7 @@ int GameSession::detectCollision(int *&)
 	memset(map, 0, height * width * sizeof(*map));
 	// set projectile to 42
 	p1.detectCollision(map);
-
+	p2.detectCollision(map);
 	// set emeny to 1
 	for (unsigned long i = 0; i < (sizeof(enemy) / sizeof(Enemy)); ++i)
 		enemy[i].detectCollision(map);
@@ -121,5 +124,6 @@ int GameSession::detectCollision(int *&)
 
 	// check if player die;
 	p1.detectCollision(map);
+	p2.detectCollision(map);
 	return 0;
 }
