@@ -25,14 +25,15 @@ Usage: ./retro
 
 ### InPlay Usage
 
+To join game as player2 press `f1`
+
 | Player | Move | Shooting |
 | :------------ | -----------: | -------------------: |
 | Player 1 | ←→↑↓ | space |
 | Player 2 | adws | f |
-[To join game as player2 press `f1`][section-mmd-tables-table1]
 
 ## Visualizer
 
 Visualizer is made up of [ncurses](https://www.gnu.org/software/ncurses/) libraray.
 
-![Visualizer](/resources/retro.gif)
+![Visualizer](/rush00/resources/retro.gif)
