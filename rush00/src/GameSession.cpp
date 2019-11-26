@@ -33,7 +33,7 @@ bool GameSession::render()
 	}
 		// Enemy::randomInterval -= Enemy::randomInterval > 5 ? 1 : 0;
 	int key;
-	if (p1.getHP() == 0 && p2.getHP() == 0)
+	if ((!p2_joined && p1.getHP() == 0) || (p2_joined &&  p1.getHP() == 0 && p2.getHP() == 0))
 	{
 		while ((key = getch()) != ERR)
 			;

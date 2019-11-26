@@ -23,6 +23,7 @@ install:
 
 clean	:
 			rm -rf $(OBJ)
+			rm -rf obj
 
 fclean	:	clean
 			rm -rf $(NAME)
